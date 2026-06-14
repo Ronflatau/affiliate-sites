@@ -1,0 +1,36 @@
+{
+  "name": "affiliate-sites",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate": "node scripts/generate.js",
+    "generate:ai-tools": "SITE_ID=ai-tools node scripts/generate.js",
+    "generate:web-hosting": "SITE_ID=web-hosting node scripts/generate.js",
+    "generate:finance": "SITE_ID=finance node scripts/generate.js",
+    "generate:saas-software": "SITE_ID=saas-software node scripts/generate.js",
+    "generate:home-office": "SITE_ID=home-office node scripts/generate.js",
+    "generate:all": "npm run generate:ai-tools && npm run generate:web-hosting && npm run generate:finance && npm run generate:saas-software && npm run generate:home-office"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "gray-matter": "^4.0.3",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}
