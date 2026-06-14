@@ -1,0 +1,46 @@
+{
+  "ai-tools": {
+    "ChatGPT": "https://openai.com/chatgpt",
+    "Claude": "https://claude.ai",
+    "Midjourney": "https://midjourney.com",
+    "Jasper": "https://jasper.ai",
+    "Jasper AI": "https://jasper.ai",
+    "Copy.ai": "https://copy.ai",
+    "Surfer SEO": "https://surferseo.com",
+    "SEMrush": "https://semrush.com",
+    "Canva": "https://canva.com"
+  },
+  "web-hosting": {
+    "Bluehost": "https://bluehost.com",
+    "WP Engine": "https://wpengine.com",
+    "Hostinger": "https://hostinger.com",
+    "SiteGround": "https://siteground.com",
+    "Kinsta": "https://kinsta.com",
+    "Cloudways": "https://cloudways.com"
+  },
+  "finance": {
+    "Acorns": "https://acorns.com",
+    "Betterment": "https://betterment.com",
+    "M1 Finance": "https://m1finance.com",
+    "Empower": "https://empower.com",
+    "SoFi": "https://sofi.com",
+    "Chime": "https://chime.com",
+    "Fundrise": "https://fundrise.com"
+  },
+  "saas-software": {
+    "HubSpot": "https://hubspot.com",
+    "Monday.com": "https://monday.com",
+    "ClickUp": "https://clickup.com",
+    "ActiveCampaign": "https://activecampaign.com",
+    "Pipedrive": "https://pipedrive.com",
+    "ConvertKit": "https://convertkit.com",
+    "Calendly": "https://calendly.com",
+    "SEMrush": "https://semrush.com"
+  },
+  "home-office": {
+    "Autonomous": "https://autonomous.ai",
+    "FlexiSpot": "https://flexispot.com",
+    "Ergonofis": "https://ergonofis.com",
+    "Amazon": "https://amazon.com"
+  }
+}

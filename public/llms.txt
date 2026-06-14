@@ -1,0 +1,22 @@
+# Affiliate Review Sites Network
+
+> A network of 5 independent editorial review sites covering AI tools, web hosting, personal finance, SaaS software, and home office products.
+
+We publish in-depth comparisons, honest reviews, and buying guides to help readers choose the best products in each category. All recommendations are independently researched. Articles are updated regularly with current pricing and product information.
+
+## Sites
+
+- AI Tools Hub — Reviews and comparisons of AI writing, image, and productivity tools
+- Hosting Advisor — Web hosting reviews ranked by real speed, uptime, and support
+- Smart Money Tools — Personal finance apps and investing tools compared
+- SaaS Stack Reviews — Unbiased reviews of business software and SaaS tools
+- Home Office HQ — Home office equipment, furniture, and productivity tools
+
+## Key Pages
+
+- /blog — All reviews and comparisons
+- /about — About our editorial process
+
+## Disclosure
+
+All articles include affiliate link disclosure. We may earn commissions from purchases made through our links at no extra cost to readers. This never influences our recommendations.
