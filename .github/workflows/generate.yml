@@ -2,17 +2,16 @@ name: Generate Affiliate Content (All Sites)
 
 on:
   schedule:
-    # Runs every night at 2:00 AM UTC
     - cron: '0 2 * * *'
   workflow_dispatch:
-
-permissions:
-  contents: write
     inputs:
       site_id:
         description: 'Run for a specific site only (leave empty for all)'
         required: false
         default: ''
+
+permissions:
+  contents: write
 
 jobs:
   generate-and-deploy:
@@ -70,18 +69,16 @@ jobs:
 
       - name: Commit new articles
         if: steps.check.outputs.skip != 'true'
-        id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Content Bot"
+          git pull --rebase origin main
           git add content/posts/
           if git diff --staged --quiet; then
-            echo "No new articles"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No new articles to commit"
           else
             git commit -m "auto: add articles for ${{ matrix.site }} [$(date +'%Y-%m-%d')]"
             git push
-            echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Deploy to Vercel
@@ -92,7 +89,7 @@ jobs:
           VERCEL_PROJECT_ID: ${{ matrix.vercel_project_id }}
           SITE_ID: ${{ matrix.site }}
         run: |
-          npm install -g vercel@latest
+          npm install -g vercel@latest --silent
           vercel deploy --yes --prod \
             --token "$VERCEL_TOKEN" \
             --scope "$VERCEL_ORG_ID" \
