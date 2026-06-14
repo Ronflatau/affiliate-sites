@@ -12,13 +12,23 @@ on:
         default: ''
 
 jobs:
-  generate-content:
+  generate-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: [ai-tools, web-hosting, finance, saas-software, home-office]
+        include:
+          - site: ai-tools
+            vercel_project_id: prj_lh3s0IM7TncSWNE0L10VOC2FhVBi
+          - site: web-hosting
+            vercel_project_id: prj_B7Dfd2kOBvcFeDVYP3XMQO37x49E
+          - site: finance
+            vercel_project_id: prj_YfShuU9b5Rz19eQhLbnuwjb9Wv5w
+          - site: saas-software
+            vercel_project_id: prj_22odW8R5eEDPf8P7jhBzhvVuehmO
+          - site: home-office
+            vercel_project_id: prj_QCA3v66PLDo9EqW3HgRVK9gu5wkZ
       fail-fast: false
-      max-parallel: 1  # Run one at a time to respect API rate limits
+      max-parallel: 1
 
     steps:
       - name: Check if this site should run
@@ -55,19 +65,37 @@ jobs:
           ARTICLES_PER_RUN: '3'
         run: node scripts/generate.js
 
-      - name: Commit and push new articles
+      - name: Commit new articles
         if: steps.check.outputs.skip != 'true'
+        id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Content Bot"
           git add content/posts/
           if git diff --staged --quiet; then
-            echo "No new articles generated"
+            echo "No new articles"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             git commit -m "auto: add articles for ${{ matrix.site }} [$(date +'%Y-%m-%d')]"
             git push
+            echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Deploy to Vercel
+        if: steps.check.outputs.skip != 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_AaF1O5oZzFAEr575PVCmlMOP
+          VERCEL_PROJECT_ID: ${{ matrix.vercel_project_id }}
+          SITE_ID: ${{ matrix.site }}
+        run: |
+          npm install -g vercel@latest
+          vercel deploy --yes --prod \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID" \
+            --env "SITE_ID=$SITE_ID" \
+            --build-env "SITE_ID=$SITE_ID"
 
       - name: Wait between sites
         if: steps.check.outputs.skip != 'true'
-        run: sleep 30
+        run: sleep 15
