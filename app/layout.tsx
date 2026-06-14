@@ -8,6 +8,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: config?.siteName || 'Review Site', template: `%s | ${config?.siteName}` },
     description: config?.hero?.subheadline || config?.tagline || '',
     openGraph: { type: 'website', siteName: config?.siteName },
+    other: {
+      'Impact-Site-Verification': '25b04e8f-dd0f-4190-a761-80605ef480cf',
+    },
   };
 }
 
