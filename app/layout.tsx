@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: config?.hero?.subheadline || config?.tagline || '',
     openGraph: { type: 'website', siteName: config?.siteName },
     other: {
-      'Impact-Site-Verification': '25b04e8f-dd0f-4190-a761-80605ef480cf',
+      'Impact-Site-Verification': '516b2fbd-949a-4483-b76c-5543d49bfff8',
     },
   };
 }
