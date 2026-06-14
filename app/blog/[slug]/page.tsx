@@ -64,6 +64,11 @@ export default async function PostPage({ params }: Props) {
         </div>
       </header>
 
+      {/* ── FTC Disclosure (required by law) ── */}
+      <div className="text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded px-4 py-2 mb-6">
+        <strong>Disclosure:</strong> This article contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you. We only recommend products we&apos;ve researched and believe provide genuine value.
+      </div>
+
       {/* ── Top affiliate CTA box (above the fold conversion) ── */}
       <div className="affiliate-box mb-8">
         <div className="flex-1">

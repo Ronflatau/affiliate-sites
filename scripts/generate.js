@@ -62,6 +62,8 @@ Requirements:
 - End with a FAQ section (3 questions)
 - Generate 5 relevant tags
 - All years mentioned must be ${currentYear}
+- REQUIRED: Include this exact disclosure blockquote immediately after the opening paragraph:
+> **Disclosure:** This article contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you. We only recommend products we've researched and believe provide genuine value.
 
 Respond ONLY with valid MDX in this exact format (no extra text before or after):
 
