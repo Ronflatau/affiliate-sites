@@ -37,6 +37,7 @@ async function generateArticle(keyword, config) {
   console.log(`  Generating: "${keyword}"`);
 
   const today = new Date().toISOString().split('T')[0];
+  const currentYear = new Date().getFullYear();
   const productsText = config.affiliateProducts.slice(0, 6).join(', ');
 
   const message = await client.messages.create({
@@ -44,7 +45,9 @@ async function generateArticle(keyword, config) {
     max_tokens: 3000,
     messages: [{
       role: 'user',
-      content: `You are an expert ${config.niche} blogger. Write a comprehensive, helpful, SEO-optimized blog post.
+      content: `You are an expert ${config.niche} blogger writing in ${currentYear}. Write a comprehensive, helpful, SEO-optimized blog post.
+
+IMPORTANT: The current year is ${currentYear}. Use ${currentYear} in the title and throughout — NEVER write 2024 or any past year.
 
 Topic: "${keyword}"
 Site niche: ${config.niche}
@@ -55,9 +58,10 @@ Requirements:
 - Helpful, honest, and genuinely useful to the reader
 - Include a clear recommendation with affiliate call-to-action (e.g. "Check current pricing →" or "Start free trial →")
 - Use H2 and H3 headers for structure
-- Include a quick "Best Pick" box near the top
+- Include a "## Best Pick" section near the top with a specific tool recommendation
 - End with a FAQ section (3 questions)
 - Generate 5 relevant tags
+- All years mentioned must be ${currentYear}
 
 Respond ONLY with valid MDX in this exact format (no extra text before or after):
 

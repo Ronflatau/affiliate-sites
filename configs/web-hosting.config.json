@@ -3,25 +3,29 @@
   "siteName": "Hosting Advisor",
   "tagline": "Find the best web hosting for your needs",
   "niche": "web hosting and WordPress hosting",
+  "hero": {
+    "headline": "Choosing the wrong host just cost you customers",
+    "subheadline": "Slow sites lose 53% of visitors. We rank every major host by real speed, uptime, and support — so you pick right the first time.",
+    "cta": "Find My Perfect Host",
+    "socialProof": "Trusted by 28,000+ website owners"
+  },
+  "color": {
+    "accent": "#2563eb",
+    "accentDark": "#1d4ed8",
+    "accentLight": "#eff6ff",
+    "accentRgb": "37, 99, 235"
+  },
+  "trustBar": ["Real uptime data", "Independent testing", "Updated monthly"],
   "affiliateProducts": [
     "Bluehost ($65-130 per referral)",
     "SiteGround ($50-100 per referral)",
     "WP Engine ($200 per referral)",
     "Hostinger ($60-150 per referral)",
     "Kinsta ($50-500 per referral)",
-    "Cloudways ($30-700 per referral)",
-    "A2 Hosting ($55-125 per referral)",
-    "DreamHost ($97 per referral)",
-    "Namecheap (35% commission)",
-    "Liquid Web ($150-500 per referral)"
-  ],
-  "affiliateNetworks": [
-    "ShareASale",
-    "CJ Affiliate",
-    "Direct programs"
+    "Cloudways ($30-700 per referral)"
   ],
   "keywords": [
-    "best web hosting 2025",
+    "best web hosting 2026",
     "cheapest web hosting",
     "best WordPress hosting",
     "Bluehost vs SiteGround",
@@ -46,7 +50,5 @@
     "web hosting comparison chart",
     "best hosting for WordPress blogs",
     "Namecheap hosting review"
-  ],
-  "avgCommission": "$65-200 per referral (one-time)",
-  "estimatedMonthlyRevenue": "$1000-5000 at 5k monthly visitors"
+  ]
 }

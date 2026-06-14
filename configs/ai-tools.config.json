@@ -1,27 +1,31 @@
 {
   "siteId": "ai-tools",
   "siteName": "AI Tools Review",
-  "tagline": "Honest reviews of the best AI tools in 2025",
+  "tagline": "Honest reviews of the best AI tools in 2026",
   "niche": "AI tools and software",
+  "hero": {
+    "headline": "Stop wasting hours on work AI can do in seconds",
+    "subheadline": "We test every major AI tool so you don't have to. Honest reviews, real comparisons, updated weekly.",
+    "cta": "Read Expert Reviews",
+    "socialProof": "Trusted by 12,000+ professionals"
+  },
+  "color": {
+    "accent": "#7c3aed",
+    "accentDark": "#6d28d9",
+    "accentLight": "#f5f3ff",
+    "accentRgb": "124, 58, 237"
+  },
+  "trustBar": ["Updated weekly", "Independent reviews", "No paid placements"],
   "affiliateProducts": [
     "Jasper AI (30% recurring commission)",
     "Writesonic (30% recurring commission)",
     "Copy.ai (45% commission)",
     "Surfer SEO (25% recurring)",
-    "Notion AI (included in Notion affiliate - $10/referral)",
-    "Midjourney (no public program yet - use alternatives)",
-    "Claude/ChatGPT Plus alternatives with affiliate programs",
     "Grammarly (20% commission)",
-    "Canva Pro (80% first month)",
-    "Zapier (referral credits)"
-  ],
-  "affiliateNetworks": [
-    "ShareASale",
-    "Impact Radius",
-    "Direct affiliate pages"
+    "Canva Pro (80% first month)"
   ],
   "keywords": [
-    "best AI writing tools 2025",
+    "best AI writing tools 2026",
     "ChatGPT alternatives for business",
     "AI tools for content creators",
     "best AI image generators",
@@ -46,7 +50,5 @@
     "AI tools for data analysis",
     "AI presentation makers",
     "AI tools for podcasters"
-  ],
-  "avgCommission": "$15-50 per sale, recurring on subscriptions",
-  "estimatedMonthlyRevenue": "$800-3000 at 5k monthly visitors"
+  ]
 }

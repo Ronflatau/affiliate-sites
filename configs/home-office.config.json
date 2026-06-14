@@ -3,25 +3,29 @@
   "siteName": "Home Office HQ",
   "tagline": "Build the perfect work from home setup",
   "niche": "home office equipment and remote work gear",
+  "hero": {
+    "headline": "A bad desk setup is quietly killing your productivity",
+    "subheadline": "Back pain, eye strain, video call nightmares. We test the gear that actually fixes it — at every budget level.",
+    "cta": "Build My Setup",
+    "socialProof": "Helping 31,000+ remote workers work better"
+  },
+  "color": {
+    "accent": "#d97706",
+    "accentDark": "#b45309",
+    "accentLight": "#fffbeb",
+    "accentRgb": "217, 119, 6"
+  },
+  "trustBar": ["Amazon prices checked daily", "Hands-on tested", "Budget options included"],
   "affiliateProducts": [
     "Amazon Associates (3-10% on all products)",
-    "Autonomous.ai (5-10% on standing desks)",
-    "FlexiSpot (8-10% on standing desks)",
-    "Secretlab chairs (5% commission)",
-    "Logitech (via Amazon or direct)",
-    "Dell monitors (via Amazon Associates)",
-    "Ergotron monitor arms (via Amazon)",
-    "Blue Yeti microphones (via Amazon)",
-    "Elgato stream gear (via Amazon)",
-    "LG UltraWide monitors (via Amazon)"
-  ],
-  "affiliateNetworks": [
-    "Amazon Associates",
-    "ShareASale",
-    "Direct programs"
+    "Autonomous.ai standing desks (5-10%)",
+    "FlexiSpot standing desks (8-10%)",
+    "Secretlab chairs (5%)",
+    "Logitech peripherals (via Amazon)",
+    "Dell/LG monitors (via Amazon)"
   ],
   "keywords": [
-    "best standing desk 2025",
+    "best standing desk 2026",
     "best ergonomic chair for home office",
     "best monitor for working from home",
     "best home office desk setup",
@@ -39,14 +43,12 @@
     "best chair for long sitting",
     "home office tax deductions",
     "best desk accessories",
-    "best UPS for home office",
     "home office on a budget",
     "Secretlab vs Herman Miller",
     "best ultrawide monitor",
     "home office cable management",
     "best desk pad",
-    "standing desk converter review"
-  ],
-  "avgCommission": "3-10% of sale (Amazon $50-500 avg order = $5-50/sale)",
-  "estimatedMonthlyRevenue": "$400-1500 at 5k monthly visitors"
+    "standing desk converter review",
+    "best USB hub for home office"
+  ]
 }

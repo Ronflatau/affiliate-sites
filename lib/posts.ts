@@ -65,7 +65,19 @@ export function getPost(slug: string): Post | null {
   };
 }
 
-export function getSiteConfig() {
+export interface SiteConfig {
+  siteId: string;
+  siteName: string;
+  tagline: string;
+  niche: string;
+  hero: { headline: string; subheadline: string; cta: string; socialProof: string };
+  color: { accent: string; accentDark: string; accentLight: string; accentRgb: string };
+  trustBar: string[];
+  affiliateProducts: string[];
+  keywords: string[];
+}
+
+export function getSiteConfig(): SiteConfig | null {
   const siteId = getSiteId();
   const configPath = path.join(process.cwd(), 'configs', `${siteId}.config.json`);
   if (!fs.existsSync(configPath)) return null;
