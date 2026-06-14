@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <meta name="impact-site-verification" value="25b04e8f-dd0f-4190-a761-80605ef480cf" />
         <style>{`
           :root {
             --accent: ${accent};
