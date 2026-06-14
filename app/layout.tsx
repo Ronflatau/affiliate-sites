@@ -25,6 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* eslint-disable-next-line @next/next/no-head-element */}
+        <meta name="impact-site-verification" value="357611c3-131f-4655-85c5-cad13fb3f995" />
 <style>{`
           :root {
             --accent: ${accent};
