@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       'Impact-Site-Verification': '357611c3-131f-4655-85c5-cad13fb3f995',
       'impact-site-verification': 'e5e9c6d9-eb79-4c19-89b0-eb2e29191caf',
+      'google-site-verification': '7B_IKlT94vEghsw1ywmRS9wF5xZrjjYRqTym3dxZENc',
     },
   };
 }
