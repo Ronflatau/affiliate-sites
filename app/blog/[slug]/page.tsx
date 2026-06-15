@@ -23,6 +23,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Extract FAQ pairs from MDX content (## Frequently Asked Questions section)
+function extractFAQs(content: string): Array<{ question: string; answer: string }> {
+  const faqSection = content.match(/##\s+(?:Frequently Asked Questions|FAQ)[^\n]*\n([\s\S]*?)(?=\n##|$)/i);
+  if (!faqSection) return [];
+
+  const faqs: Array<{ question: string; answer: string }> = [];
+  // Match ### Question followed by answer text
+  const qPairs = faqSection[1].matchAll(/###\s+(.+?)\n+([\s\S]+?)(?=\n###|\n##|$)/g);
+  for (const match of qPairs) {
+    const question = match[1].trim();
+    const answer = match[2].replace(/\*\*/g, '').replace(/\n+/g, ' ').trim().slice(0, 300);
+    if (question && answer) faqs.push({ question, answer });
+  }
+  return faqs.slice(0, 5);
+}
+
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
@@ -32,8 +48,36 @@ export default async function PostPage({ params }: Props) {
   const wordCount = post.content.trim().split(/\s+/).length;
   const readingTime = Math.max(3, Math.ceil(wordCount / 200));
 
+  const faqs = extractFAQs(post.content);
+  const faqSchema = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  } : null;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Organization', name: config?.siteName || 'Review Site' },
+  };
+
   return (
     <div className="max-w-3xl mx-auto">
+      {/* ── Structured Data (FAQPage + Article schema for Google/AI citation) ── */}
+      <script type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
 
       {/* ── Breadcrumb ── */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
