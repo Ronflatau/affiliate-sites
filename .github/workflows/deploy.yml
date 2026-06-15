@@ -1,0 +1,54 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - site: ai-tools
+            vercel_project_id: prj_lh3s0IM7TncSWNE0L10VOC2FhVBi
+          - site: web-hosting
+            vercel_project_id: prj_B7Dfd2kOBvcFeDVYP3XMQO37x49E
+          - site: finance
+            vercel_project_id: prj_YfShuU9b5Rz19eQhLbnuwjb9Wv5w
+          - site: saas-software
+            vercel_project_id: prj_22odW8R5eEDPf8P7jhBzhvVuehmO
+          - site: home-office
+            vercel_project_id: prj_QCA3v66PLDo9EqW3HgRVK9gu5wkZ
+      fail-fast: false
+      max-parallel: 1
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Deploy ${{ matrix.site }} to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_AaF1O5oZzFAEr575PVCmlMOP
+          VERCEL_PROJECT_ID: ${{ matrix.vercel_project_id }}
+          SITE_ID: ${{ matrix.site }}
+        run: |
+          npm install -g vercel@latest --silent
+          vercel deploy --yes --prod \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID" \
+            --env "SITE_ID=$SITE_ID" \
+            --build-env "SITE_ID=$SITE_ID"
+
+      - name: Wait between sites
+        run: sleep 10
