@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { getAllPosts, getSiteConfig } from '@/lib/posts';
 import EmailCapture from '@/components/EmailCapture';
 
+// Strip markdown links/bold from plain text display
+const stripMd = (text: string) =>
+  text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*/g, '');
+
 const READING_TIME = (content?: string) => {
   if (!content) return '5 min read';
   const words = content.trim().split(/\s+/).length;
@@ -86,7 +90,7 @@ export default function HomePage() {
                   {post.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-3">
-                  {post.description}
+                  {stripMd(post.description)}
                 </p>
 
                 <div className="flex items-center justify-between mt-auto">
@@ -115,7 +119,7 @@ export default function HomePage() {
                   <h3 className="font-bold text-gray-900 group-hover:underline leading-snug truncate">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1 line-clamp-1">{post.description}</p>
+                  <p className="text-sm text-gray-500 mt-1 line-clamp-1">{stripMd(post.description)}</p>
                 </div>
                 <span className="text-sm font-bold shrink-0 mt-1" style={{ color: 'var(--accent)' }}>Read →</span>
               </Link>
