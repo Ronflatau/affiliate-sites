@@ -104,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="border-t border-gray-800 pt-6 text-xs space-y-2">
               <p><strong className="text-gray-300">Affiliate Disclosure:</strong> This site contains affiliate links. When you click and purchase, we may earn a commission at no extra cost to you. We only recommend products we genuinely believe in, and all reviews are independently written.</p>
               <p>© {new Date().getFullYear()} {config?.siteName}. All rights reserved.</p>
+              <p style={{ fontSize: '1px', color: 'transparent', userSelect: 'none' }}>Impact-Site-Verification: 19947120-b7f0-440a-9a39-387720da9e8f</p>
             </div>
           </div>
         </footer>
