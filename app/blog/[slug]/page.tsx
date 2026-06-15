@@ -59,14 +59,19 @@ export default async function PostPage({ params }: Props) {
     })),
   } : null;
 
+  const authorName = post.author || config?.author?.name || 'Editorial Team';
+  const authorTitle = post.authorTitle || config?.author?.title || 'Staff Writer';
+  const lastVerified = post.lastVerified || post.date;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
-    author: { '@type': 'Organization', name: config?.siteName || 'Review Site' },
+    dateModified: lastVerified,
+    author: { '@type': 'Person', name: authorName, jobTitle: authorTitle },
+    publisher: { '@type': 'Organization', name: config?.siteName || 'Review Site' },
   };
 
   return (
@@ -100,11 +105,20 @@ export default async function PostPage({ params }: Props) {
 
         <p className="text-xl text-gray-600 mb-5 leading-relaxed">{post.description}</p>
 
-        {/* Meta bar — authority signals */}
+        {/* Author + meta bar — E-E-A-T signals */}
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-5 border-b border-gray-200">
-          <span>📅 Updated: <strong className="text-gray-700">{post.date}</strong></span>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
+              {authorName.split(' ').map((n: string) => n[0]).join('')}
+            </div>
+            <div>
+              <span className="font-semibold text-gray-800">{authorName}</span>
+              <span className="text-gray-400 ml-1">· {authorTitle}</span>
+            </div>
+          </div>
+          <span>📅 Updated: <strong className="text-gray-700">{lastVerified}</strong></span>
           <span>⏱ {readingTime} min read</span>
-          <span>✓ Independent review</span>
+          <span className="text-green-600 font-medium">✓ Prices verified {lastVerified}</span>
         </div>
       </header>
 
@@ -187,6 +201,20 @@ export default async function PostPage({ params }: Props) {
         If you purchase through them, we earn a commission at no extra cost to you.
         This never influences our reviews — we only recommend products we genuinely believe are worth your money.
       </div>
+
+      {/* ── Author bio (E-E-A-T trust signal) ── */}
+      {config?.author && (
+        <div className="mt-8 p-5 bg-gray-50 rounded-xl border border-gray-200 flex items-start gap-4">
+          <div className="w-14 h-14 rounded-full bg-gray-300 flex items-center justify-center text-lg font-black text-gray-600 shrink-0">
+            {authorName.split(' ').map((n: string) => n[0]).join('')}
+          </div>
+          <div>
+            <p className="font-bold text-gray-900">{authorName}</p>
+            <p className="text-sm text-gray-500 mb-2">{authorTitle}</p>
+            <p className="text-sm text-gray-600 leading-relaxed">{config.author.bio}</p>
+          </div>
+        </div>
+      )}
 
       {/* ── Back navigation ── */}
       <div className="mt-8 flex gap-4">

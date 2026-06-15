@@ -9,7 +9,10 @@ export interface PostMeta {
   title: string;
   description: string;
   date: string;
+  lastVerified?: string;
   siteId: string;
+  author?: string;
+  authorTitle?: string;
   tags: string[];
 }
 
@@ -59,7 +62,10 @@ export function getPost(slug: string): Post | null {
     title: data.title || '',
     description: data.description || '',
     date: data.date || '',
+    lastVerified: data.lastVerified || data.date || '',
     siteId: data.siteId || siteId,
+    author: data.author || '',
+    authorTitle: data.authorTitle || '',
     tags: data.tags || [],
     content,
   };
@@ -75,6 +81,7 @@ export interface SiteConfig {
   trustBar: string[];
   affiliateProducts: string[];
   keywords: string[];
+  author?: { name: string; title: string; bio: string; avatar: string };
 }
 
 export function getSiteConfig(): SiteConfig | null {

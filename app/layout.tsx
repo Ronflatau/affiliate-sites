@@ -61,7 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <nav className="flex items-center gap-6 text-sm font-medium text-gray-600">
               <a href="/" className="hover:text-gray-900 transition-colors">Home</a>
-              <a href="/blog" className="hover:text-gray-900 transition-colors">All Reviews</a>
+              <a href="/blog" className="hover:text-gray-900 transition-colors">Reviews</a>
+              <a href="/about" className="hover:text-gray-900 transition-colors">About</a>
               <a href="/blog" className="btn-primary text-sm py-2 px-4">Top Picks →</a>
             </nav>
           </div>
@@ -85,6 +86,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <p className="text-white font-semibold mb-3">Reviews</p>
                   <a href="/blog" className="block hover:text-white mb-1">All Articles</a>
                   <a href="/" className="block hover:text-white">Home</a>
+                </div>
+                <div>
+                  <p className="text-white font-semibold mb-3">Company</p>
+                  <a href="/about" className="block hover:text-white mb-1">About Us</a>
+                  <a href="/contact" className="block hover:text-white mb-1">Contact</a>
+                  <a href="/privacy" className="block hover:text-white">Privacy Policy</a>
                 </div>
               </div>
             </div>

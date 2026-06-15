@@ -160,7 +160,7 @@ async function generateArticle(keyword, config) {
   console.log(`  Article type: ${articleType}`);
 
   const message = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
+    model: 'claude-sonnet-4-6',
     max_tokens: 4000,
     messages: [{
       role: 'user',
@@ -184,10 +184,6 @@ UNIVERSAL REQUIREMENTS (apply to all article types):
 - Internal link suggestion: mention "see our full [related topic] guide" once naturally
 - All years mentioned must be ${currentYear}
 
-FTC COMPLIANCE (required by law):
-- REQUIRED: Include this exact blockquote immediately after the opening paragraph:
-> **Disclosure:** This article contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you. We only recommend products we've researched and believe provide genuine value.
-
 AI SEO OPTIMIZATION:
 - Use exact question phrases as H2/H3 headers (e.g. "Is [Product] Worth It?", "What Does [Product] Cost?")
 - End with a ## Frequently Asked Questions section with exactly 3 questions and detailed answers
@@ -199,11 +195,15 @@ Respond ONLY with valid MDX in this exact format (no extra text before or after)
 title: "YOUR TITLE HERE (include ${currentYear})"
 description: "YOUR META DESCRIPTION HERE (150-160 chars, include primary keyword)"
 date: "${today}"
+lastVerified: "${today}"
 siteId: "${SITE_ID}"
+author: "${config.author?.name || 'Editorial Team'}"
+authorTitle: "${config.author?.title || 'Staff Writer'}"
 tags: ["tag1", "tag2", "tag3", "tag4", "tag5"]
 ---
 
-[article content here]`
+[article content here — IMPORTANT: after the opening paragraph but before any H2, include this exact line:]
+> **Disclosure:** This article contains affiliate links. We may earn a commission at no extra cost to you. Prices verified as of ${today} — check the product site for current pricing.`
     }]
   });
 

@@ -1,14 +1,15 @@
 name: Generate Affiliate Content (All Sites)
 
 on:
-  schedule:
-    - cron: '0 2 * * *'   # 2am UTC nightly — content generation
+  # PAUSED by council decision 2026-06-15: validate model on ai-tools site first
+  # schedule:
+  #   - cron: '0 2 * * *'   # 2am UTC nightly — re-enable after first $ earned
   workflow_dispatch:
     inputs:
       site_id:
         description: 'Run for a specific site only (leave empty for all)'
         required: false
-        default: ''
+        default: 'ai-tools'
 
 permissions:
   contents: write
