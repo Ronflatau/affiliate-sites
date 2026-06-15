@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="impact-site-verification" value="357611c3-131f-4655-85c5-cad13fb3f995" />
         {/* @ts-expect-error impact verification uses non-standard value attr */}
         <meta name="impact-site-verification" value="e5e9c6d9-eb79-4c19-89b0-eb2e29191caf" />
+        <meta name="google-site-verification" content="7B_IKlT94vEghsw1ywmRS9wF5xZrjjYRqTym3dxZENc" />
 <style>{`
           :root {
             --accent: ${accent};
