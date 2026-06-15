@@ -1,14 +1,21 @@
 {
   "ai-tools": {
-    "ChatGPT": "https://openai.com/chatgpt",
-    "Claude": "https://claude.ai",
-    "Midjourney": "https://midjourney.com",
+    "ChatGPT": "https://www.amazon.com/s?k=chatgpt+book+beginners&tag=rf08f-20",
+    "prompt engineering": "https://www.amazon.com/s?k=prompt+engineering+book&tag=rf08f-20",
+    "AI writing": "https://www.amazon.com/s?k=ai+writing+tools+book&tag=rf08f-20",
+    "mechanical keyboard": "https://www.amazon.com/s?k=mechanical+keyboard+productivity&tag=rf08f-20",
+    "noise cancelling headphones": "https://www.amazon.com/s?k=noise+cancelling+headphones+work&tag=rf08f-20",
+    "webcam": "https://www.amazon.com/s?k=webcam+1080p+streaming&tag=rf08f-20",
     "Jasper": "https://jasper.ai",
     "Jasper AI": "https://jasper.ai",
     "Copy.ai": "https://copy.ai",
+    "Writesonic": "https://writesonic.com",
+    "Grammarly": "https://grammarly.com",
     "Surfer SEO": "https://surferseo.com",
-    "SEMrush": "https://semrush.com",
-    "Canva": "https://canva.com"
+    "Canva": "https://canva.com",
+    "Midjourney": "https://midjourney.com",
+    "Claude": "https://claude.ai",
+    "SEMrush": "https://semrush.com"
   },
   "web-hosting": {
     "Bluehost": "https://bluehost.com",
@@ -38,9 +45,16 @@
     "SEMrush": "https://semrush.com"
   },
   "home-office": {
+    "standing desk": "https://www.amazon.com/s?k=standing+desk+adjustable&tag=rf08f-20",
+    "ergonomic chair": "https://www.amazon.com/s?k=ergonomic+office+chair&tag=rf08f-20",
+    "monitor arm": "https://www.amazon.com/s?k=monitor+arm+desk+mount&tag=rf08f-20",
+    "desk lamp": "https://www.amazon.com/s?k=led+desk+lamp+home+office&tag=rf08f-20",
+    "webcam": "https://www.amazon.com/s?k=webcam+4k+home+office&tag=rf08f-20",
+    "mechanical keyboard": "https://www.amazon.com/s?k=mechanical+keyboard+office&tag=rf08f-20",
+    "mouse pad": "https://www.amazon.com/s?k=large+mouse+pad+desk&tag=rf08f-20",
+    "FlexiSpot": "https://www.amazon.com/s?k=flexispot+standing+desk&tag=rf08f-20",
     "Autonomous": "https://autonomous.ai",
-    "FlexiSpot": "https://flexispot.com",
-    "Ergonofis": "https://ergonofis.com",
-    "Amazon": "https://amazon.com"
+    "Herman Miller": "https://www.amazon.com/s?k=herman+miller+chair&tag=rf08f-20",
+    "Steelcase": "https://www.amazon.com/s?k=steelcase+office+chair&tag=rf08f-20"
   }
 }
