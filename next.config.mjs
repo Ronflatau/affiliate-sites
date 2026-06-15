@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const siteId = process.env.SITE_ID || process.env.APP_SITE_ID;
+
 const nextConfig = {
   env: {
-    SITE_ID: process.env.SITE_ID,
-    NEXT_PUBLIC_SITE_ID: process.env.SITE_ID,
+    SITE_ID: siteId,
+    NEXT_PUBLIC_SITE_ID: siteId,
   },
   output: 'standalone',
   async headers() {
