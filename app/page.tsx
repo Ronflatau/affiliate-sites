@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts, getSiteConfig } from '@/lib/posts';
+import EmailCapture from '@/components/EmailCapture';
 
 const READING_TIME = (content?: string) => {
   if (!content) return '5 min read';
@@ -130,6 +131,13 @@ export default function HomePage() {
           <p className="text-gray-400">First articles will appear within 24 hours.</p>
         </div>
       )}
+
+      {/* ── EMAIL CAPTURE — List building (owned audience) ── */}
+      <EmailCapture
+        siteId={process.env.NEXT_PUBLIC_SITE_ID || ''}
+        niche={config?.niche || 'software tool'}
+        accentColor={config?.color?.accent}
+      />
 
       {/* ── BOTTOM CTA — Scarcity + Reciprocity ── */}
       {posts.length > 0 && (

@@ -2,7 +2,7 @@ name: Generate Affiliate Content (All Sites)
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 2 * * *'   # 2am UTC nightly — content generation
   workflow_dispatch:
     inputs:
       site_id:
@@ -66,6 +66,16 @@ jobs:
           SITE_ID: ${{ matrix.site }}
           ARTICLES_PER_RUN: '3'
         run: node scripts/generate.js
+
+      - name: Post new articles to social media
+        if: steps.check.outputs.skip != 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BUFFER_ACCESS_TOKEN: ${{ secrets.BUFFER_ACCESS_TOKEN }}
+          BUFFER_PROFILE_IDS: ${{ secrets.BUFFER_PROFILE_IDS }}
+          SITE_ID: ${{ matrix.site }}
+        run: node scripts/social-post.js
+        continue-on-error: true   # Don't fail the whole job if social posting fails
 
       - name: Commit new articles
         if: steps.check.outputs.skip != 'true'
