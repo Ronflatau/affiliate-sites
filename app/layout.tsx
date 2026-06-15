@@ -10,6 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: { type: 'website', siteName: config?.siteName },
     other: {
       'google-site-verification': '7B_IKlT94vEghsw1ywmRS9wF5xZrjjYRqTym3dxZENc',
+      'impact-site-verification': 'ec5c5395-32c6-486b-b83e-69aa62d04436',
     },
   };
 }
