@@ -7,6 +7,9 @@ const nextConfig = {
     NEXT_PUBLIC_SITE_ID: siteId,
   },
   output: 'standalone',
+  outputFileTracingIncludes: {
+    '/**': ['./configs/**', './content/**'],
+  },
   async headers() {
     return [
       {
